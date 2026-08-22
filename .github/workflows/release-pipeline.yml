@@ -22,7 +22,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [20.x, 22.x, 24.x]
+        node-version: [24.x]
 
     steps:
       - name: Checkout repository
@@ -53,6 +53,7 @@ jobs:
       - name: Pack npm artifact
         shell: bash
         run: |
+          mkdir -p release-artifacts
           npm pack --pack-destination release-artifacts
 
       - name: Log in to GitHub Container Registry
